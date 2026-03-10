@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: postgres_sber_credits
+    restart: always
+
+    environment:
+      POSTGRES_DB: sberdb
+      POSTGRES_USER: sberuser
+      POSTGRES_PASSWORD: sberpass
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sberuser"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+  app:
+    build: .
+    container_name: sber_credits
+    restart: always
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sberdb
+      SPRING_DATASOURCE_USERNAME: sberuser
+      SPRING_DATASOURCE_PASSWORD: sberpass
+
+    ports:
+      - "8080:8080"
+
+
+volumes:
+  postgres_data:

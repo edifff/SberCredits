@@ -11,15 +11,16 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
-@Table(name="credits")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "credits")
 public class Credit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="deal_id")
+    @Column(name = "deal_id")
     private Long dealID;
 
-    @Column(name="credit_amount", nullable = false, precision = 10, scale = 2)
+    @Column(name = "credit_amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal creditAmount;
 
     @Column(name = "created_at", insertable = false, updatable = false)
@@ -28,8 +29,8 @@ public class Credit {
     @Column(name = "updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Payment> payments=new ArrayList<>();
+    @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Payment> payments = new ArrayList<>();
 
 
 }

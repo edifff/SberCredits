@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class PaymentReqestDTO {
+public class PaymentRequestDTO {
 
     @NotNull
     private LocalDate paymentDate;

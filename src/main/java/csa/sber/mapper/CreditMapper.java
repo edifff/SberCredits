@@ -1,6 +1,6 @@
 package csa.sber.mapper;
 
-import csa.sber.dto.CreditReqestDTO;
+import csa.sber.dto.CreditRequestDTO;
 import csa.sber.dto.CreditResponseDTO;
 import csa.sber.entity.Credit;
 import org.mapstruct.*;
@@ -18,12 +18,12 @@ public interface CreditMapper {
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updateAt", ignore = true)
     @Mapping(target = "payments", ignore = true)
-    Credit toEntity(CreditReqestDTO creditReqestDTO);
+    Credit toEntity(CreditRequestDTO creditRequestDTO);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "dealID", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updateAt", ignore = true)
     @Mapping(target = "payments", ignore = true)
-    void updateEntity(CreditReqestDTO creditReqestDTO, @MappingTarget Credit credit);
+    void updateEntity(CreditRequestDTO creditRequestDTO, @MappingTarget Credit credit);
 }

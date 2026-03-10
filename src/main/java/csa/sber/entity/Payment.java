@@ -10,23 +10,26 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "payments")
 public class Payment {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_id")
     private Long paymentId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "deal_id", nullable = false)
     private Credit credit;
 
-    @Column(name = "payment_date", nullable = false,insertable = false, updatable = false)
-    private LocalDate paymantDate;
+    @Column(name = "payment_date", nullable = false)
+    private LocalDate paymentDate;
 
     @Column(name = "payment_amount", nullable = false)
-    private BigDecimal paymantAmout;
+    private BigDecimal paymentAmount;
 
-    @Column(name = "created_at",insertable = false, updatable = false)
+    @Column(name = "created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
 }
