@@ -20,7 +20,6 @@
         <mapstruct.version>1.6.3</mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
     </properties>
-
     <dependencies>
         <!-- Spring Boot Starters -->
         <dependency>
