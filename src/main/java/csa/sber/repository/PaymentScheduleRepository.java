@@ -9,14 +9,7 @@ import java.util.Locale;
 
 public interface PaymentScheduleRepository extends JpaRepository<PaymentSchedule, Long> {
 
-    List<PaymentSchedule> findByCreditDealIDAndPaymentAmountDateBefore(
-            Long dealId,
-            LocalDate date
-    );
+    List<PaymentSchedule> findByCreditDealIDAndPaymentDateBefore(Long dealId, LocalDate date);
 
-    List<PaymentSchedule> findByCreditDealIDBetween(
-            Long dealId,
-            LocalDate start,
-            LocalDate end
-    );
+    List<PaymentSchedule> findByCreditDealIDAndPaymentDateBetween(Long dealId, LocalDate start, LocalDate end);
 }

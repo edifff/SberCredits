@@ -6,25 +6,29 @@ import csa.sber.mapper.CreditMapper;
 import csa.sber.repository.CreditRepository;
 import csa.sber.entity.Credit;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 @Service
 @Transactional
+@AllArgsConstructor
 public class CreditService {
-    private CreditRepository creditRepository;
-    private CreditMapper mapper;
 
-    @Autowired
-    public CreditService(CreditRepository creditRepository, CreditMapper mapper) {
-        this.creditRepository = creditRepository;
-        this.mapper = mapper;
-    }
+    private final ScheduleGeneratorService scheduleGenerator;
+    private final CreditRepository creditRepository;
+    private final CreditMapper mapper;
 
     public CreditResponseDTO create(CreditRequestDTO creditRequestDTO) {
         Credit credit = mapper.toEntity(creditRequestDTO);
         Credit saved = creditRepository.save(credit);
+        scheduleGenerator.generate(saved, new BigDecimal("12"),
+                24,
+                LocalDate.now());
         return mapper.toDTO(saved);
     }
 

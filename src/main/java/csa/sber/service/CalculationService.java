@@ -22,17 +22,16 @@ public class CalculationService {
 
     public CalculationResponseDTO calculate(CalculationRequestDTO request) {
 
-
         Credit credit = creditRepository.findById(request.getDealId())
                 .orElseThrow(() -> new EntityNotFoundException("Credit not found"));
 
         LocalDate date = request.getCalculationDate();
 
-        List<PaymentSchedule> pastPayments = scheduleRepository.findByCreditDealIDAndPaymentAmountDateBefore(request.getDealId(), date);
+        List<PaymentSchedule> pastPayments = scheduleRepository.findByCreditDealIDAndPaymentDateBefore(request.getDealId(), date);
         BigDecimal paid = pastPayments.stream().map(PaymentSchedule::getPrincipalAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
         BigDecimal balanceOnDate = credit.getCreditAmount().subtract(paid);
         LocalDate oneYearLater = date.plusYears(1);
-        List<PaymentSchedule> futurePayments = scheduleRepository.findByCreditDealIDBetween(request.getDealId(), date, oneYearLater);
+        List<PaymentSchedule> futurePayments = scheduleRepository.findByCreditDealIDAndPaymentDateBetween(request.getDealId(), date, oneYearLater);
         BigDecimal paidNextYear = futurePayments.stream()
                 .map(PaymentSchedule::getPrincipalAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

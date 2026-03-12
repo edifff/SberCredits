@@ -16,14 +16,16 @@ public interface CreditMapper {
 
     @Mapping(target = "dealID", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
-    @Mapping(target = "updateAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "payments", ignore = true)
+    @Mapping(target = "schedule", ignore = true)
     Credit toEntity(CreditRequestDTO creditRequestDTO);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "dealID", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
-    @Mapping(target = "updateAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "payments", ignore = true)
+    @Mapping(target = "schedule", ignore = true)
     void updateEntity(CreditRequestDTO creditRequestDTO, @MappingTarget Credit credit);
 }
