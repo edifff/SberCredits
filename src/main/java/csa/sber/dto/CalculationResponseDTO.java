@@ -1,5 +1,6 @@
 package csa.sber.dto;
 
+import csa.sber.entity.enums.Currency;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -12,9 +13,12 @@ public class CalculationResponseDTO {
     private Long dealId;
 
     private BigDecimal creditAmount;
+    private Currency creditAmountCurrency;
 
     private BigDecimal balanceOnDate;
+    private Currency balanceOnDateCurrency;
 
     private BigDecimal balanceInOneYear;
+    private Currency balanceInOneYearCurrency;
 
 }

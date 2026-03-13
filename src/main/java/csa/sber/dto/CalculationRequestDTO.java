@@ -1,5 +1,6 @@
 package csa.sber.dto;
 
+import csa.sber.entity.enums.Currency;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,4 +16,7 @@ public class CalculationRequestDTO {
 
     @NotNull
     private LocalDate calculationDate;
+
+    @NotNull
+    private Currency targetCurrency;
 }

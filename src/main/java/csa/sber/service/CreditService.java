@@ -26,9 +26,7 @@ public class CreditService {
     public CreditResponseDTO create(CreditRequestDTO creditRequestDTO) {
         Credit credit = mapper.toEntity(creditRequestDTO);
         Credit saved = creditRepository.save(credit);
-        scheduleGenerator.generate(saved, new BigDecimal("12"),
-                24,
-                LocalDate.now());
+        scheduleGenerator.generate(saved, credit.getInterestRate(), credit.getTermMonths(), credit.getIssueDate());
         return mapper.toDTO(saved);
     }
 
