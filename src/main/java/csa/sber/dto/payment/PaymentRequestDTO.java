@@ -1,4 +1,4 @@
-package csa.sber.dto;
+package csa.sber.dto.payment;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

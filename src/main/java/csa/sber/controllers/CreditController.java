@@ -1,7 +1,7 @@
 package csa.sber.controllers;
 
-import csa.sber.dto.CreditRequestDTO;
-import csa.sber.dto.CreditResponseDTO;
+import csa.sber.dto.credit.CreditRequestDTO;
+import csa.sber.dto.credit.CreditResponseDTO;
 import csa.sber.service.CreditService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

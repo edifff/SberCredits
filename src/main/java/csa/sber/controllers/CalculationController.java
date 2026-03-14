@@ -1,7 +1,7 @@
 package csa.sber.controllers;
 
-import csa.sber.dto.CalculationRequestDTO;
-import csa.sber.dto.CalculationResponseDTO;
+import csa.sber.dto.calculation.CalculationRequestDTO;
+import csa.sber.dto.calculation.CalculationResponseDTO;
 import csa.sber.service.CalculationService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

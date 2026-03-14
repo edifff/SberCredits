@@ -1,4 +1,4 @@
-package csa.sber.dto;
+package csa.sber.dto.calculation;
 
 import csa.sber.entity.enums.Currency;
 import lombok.Builder;

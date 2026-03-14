@@ -1,18 +1,14 @@
 package csa.sber.service;
 
-import csa.sber.dto.CreditRequestDTO;
-import csa.sber.dto.CreditResponseDTO;
+import csa.sber.dto.credit.CreditRequestDTO;
+import csa.sber.dto.credit.CreditResponseDTO;
 import csa.sber.mapper.CreditMapper;
 import csa.sber.repository.CreditRepository;
 import csa.sber.entity.Credit;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Service
 @Transactional

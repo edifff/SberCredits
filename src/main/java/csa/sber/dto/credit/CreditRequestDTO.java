@@ -1,4 +1,4 @@
-package csa.sber.dto;
+package csa.sber.dto.credit;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;

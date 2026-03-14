@@ -22,8 +22,8 @@ public class Credit {
     @Column(name = "deal_id", nullable = false)
     private Long dealID;
 
-    @Column(name = "dealNumber", nullable = false)
-    private Long dealNumber;
+    @Column(name = "dealNumber", nullable = false, unique = true)
+    private String dealNumber;
 
     @Column(name = "credit_amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal creditAmount;

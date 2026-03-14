@@ -1,10 +1,9 @@
 package csa.sber.mapper;
 
-import csa.sber.dto.CreditRequestDTO;
-import csa.sber.dto.CreditResponseDTO;
+import csa.sber.dto.credit.CreditRequestDTO;
+import csa.sber.dto.credit.CreditResponseDTO;
 import csa.sber.entity.Credit;
 import org.mapstruct.*;
-import org.springframework.stereotype.Component;
 
 @Mapper(componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.ERROR)

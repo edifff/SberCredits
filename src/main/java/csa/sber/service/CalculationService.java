@@ -1,7 +1,7 @@
 package csa.sber.service;
 
-import csa.sber.dto.CalculationRequestDTO;
-import csa.sber.dto.CalculationResponseDTO;
+import csa.sber.dto.calculation.CalculationRequestDTO;
+import csa.sber.dto.calculation.CalculationResponseDTO;
 import csa.sber.entity.Credit;
 import csa.sber.entity.PaymentSchedule;
 import csa.sber.entity.enums.Currency;

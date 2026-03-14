@@ -1,4 +1,4 @@
-package csa.sber.dto;
+package csa.sber.dto.credit;
 
 import lombok.Builder;
 import lombok.Getter;
