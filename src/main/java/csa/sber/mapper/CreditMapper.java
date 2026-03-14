@@ -6,7 +6,6 @@ import csa.sber.entity.Credit;
 import org.mapstruct.*;
 import org.springframework.stereotype.Component;
 
-@Component
 @Mapper(componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface CreditMapper {
@@ -15,6 +14,7 @@ public interface CreditMapper {
     CreditResponseDTO toDTO(Credit credit);
 
     @Mapping(target = "dealID", ignore = true)
+    @Mapping(target = "dealNumber", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "payments", ignore = true)
@@ -23,6 +23,7 @@ public interface CreditMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "dealID", ignore = true)
+    @Mapping(target = "dealNumber", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "payments", ignore = true)

@@ -10,8 +10,8 @@ import java.time.LocalDate;
 @Builder
 public class PaymentResponseDTO {
 
-    private Long id;
-    private Long creditId;
+    private Long paymentNumber;
+    private Long creditNumber;
     private LocalDate paymentDate;
     private BigDecimal paymentAmount;
 }

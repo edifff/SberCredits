@@ -12,6 +12,6 @@ public class CbrResponseDTO {
     @JsonProperty("Date")
     private OffsetDateTime Date;
 
-    @JsonProperty("Valute")
+    @JsonProperty("Value")
     private Map<String, CurrencyRate> Valute;
 }

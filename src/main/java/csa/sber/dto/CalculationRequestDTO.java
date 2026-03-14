@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class CalculationRequestDTO {
 
     @NotNull
-    private Long dealId;
+    private Long dealNumber;
 
     @NotNull
     private LocalDate calculationDate;

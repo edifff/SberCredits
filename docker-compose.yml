@@ -24,7 +24,6 @@ services:
       timeout: 5s
       retries: 5
 
-
   app:
     build: .
     container_name: sber_credits

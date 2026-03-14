@@ -20,6 +20,9 @@ public class Payment {
     @Column(name = "payment_id")
     private Long paymentId;
 
+    @Column(name= "paymentNumber", nullable=false)
+    private Long paymentNumber;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "deal_id", nullable = false)
     private Credit credit;

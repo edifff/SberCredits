@@ -25,14 +25,14 @@ public class CalculationService {
 
     public CalculationResponseDTO calculate(CalculationRequestDTO request) {
 
-        Credit credit = creditRepository.findById(request.getDealId())
+        Credit credit = creditRepository.findByDealNumber(request.getDealNumber())
                 .orElseThrow(() -> new EntityNotFoundException("Credit not found"));
 
         LocalDate date = request.getCalculationDate();
 
         List<PaymentSchedule> pastPayments =
-                scheduleRepository.findByCreditDealIDAndPaymentDateBefore(
-                        request.getDealId(), date);
+                scheduleRepository.findByCreditDealNumberAndPaymentDateBefore(
+                        request.getDealNumber(), date);
 
         BigDecimal paid = pastPayments.stream()
                 .map(PaymentSchedule::getPrincipalAmount)
@@ -44,8 +44,8 @@ public class CalculationService {
         LocalDate oneYearLater = date.plusYears(1);
 
         List<PaymentSchedule> futurePayments =
-                scheduleRepository.findByCreditDealIDAndPaymentDateBetween(
-                        request.getDealId(), date, oneYearLater);
+                scheduleRepository.findByCreditDealNumberAndPaymentDateBetween(
+                        request.getDealNumber(), date, oneYearLater);
 
         BigDecimal paidNextYear = futurePayments.stream()
                 .map(PaymentSchedule::getPrincipalAmount)
@@ -57,7 +57,7 @@ public class CalculationService {
         Currency target = request.getTargetCurrency();
 
         return CalculationResponseDTO.builder()
-                .dealId(credit.getDealID())
+                .dealNumber(credit.getDealNumber())
 
                 .creditAmount(currencyService.convertFromRub(credit.getCreditAmount(), target))
                 .creditAmountCurrency(target)

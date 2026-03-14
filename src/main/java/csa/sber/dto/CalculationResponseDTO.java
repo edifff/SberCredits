@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Builder
 public class CalculationResponseDTO {
 
-    private Long dealId;
+    private Long dealNumber;
 
     private BigDecimal creditAmount;
     private Currency creditAmountCurrency;

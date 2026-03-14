@@ -5,11 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Locale;
 
 public interface PaymentScheduleRepository extends JpaRepository<PaymentSchedule, Long> {
 
-    List<PaymentSchedule> findByCreditDealIDAndPaymentDateBefore(Long dealId, LocalDate date);
+    List<PaymentSchedule> findByCreditDealNumberAndPaymentDateBefore(Long dealId, LocalDate date);
 
-    List<PaymentSchedule> findByCreditDealIDAndPaymentDateBetween(Long dealId, LocalDate start, LocalDate end);
+    List<PaymentSchedule> findByCreditDealNumberAndPaymentDateBetween(Long dealId, LocalDate start, LocalDate end);
 }

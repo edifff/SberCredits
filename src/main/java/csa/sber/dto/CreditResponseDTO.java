@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 public class CreditResponseDTO {
 
-    private Long dealID;
+    private Long dealNumber;
 
     private BigDecimal creditAmount;
 

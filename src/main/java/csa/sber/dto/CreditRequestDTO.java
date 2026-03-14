@@ -1,6 +1,7 @@
 package csa.sber.dto;
 
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +16,10 @@ public class CreditRequestDTO {
     @NotNull
     @DecimalMin("0.01")
     private BigDecimal creditAmount;
+
+    @NotNull
+    @Digits(integer = 12, fraction = 0)
+    private Long dealNumber;
 
     @NotNull
     private BigDecimal interestRate;
